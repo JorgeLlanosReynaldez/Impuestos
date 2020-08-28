@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      IMPUESTOS
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,51 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">ingrese monto en Bs</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Calcula:</ion-card-subtitle>
+      <ion-card-subtitle>IVA</ion-card-subtitle>
+      <ion-card-subtitle>IT</ion-card-subtitle>
+      <ion-card-subtitle>UTILIDAD</ion-card-subtitle>
+      
+      
+    </ion-card-header>
+  
+    <ion-card-content>
+      
+     
+      <ion-item>
+        <ion-label>Ingrese monto en Bs.</ion-label>
+        <ion-input [(ngModel)]="Monto" type="number" value="0"></ion-input>
+      </ion-item>
+      
+      
+    
+
+      <ion-button color="primary" (click)="calcularImpuestos()" expand="block" fill="outline">Calcular</ion-button>
+
+      <div *ngIf="calcularIVA > 0" class="resultadodados" class="IVA">
+        IVA: {{ calcularIVA }} Bs.
+      </div>
+
+      <div *ngIf="calcularIT > 0" class="resultadodados" class="IT">
+        IT: {{ calcularIT }} Bs.
+      </div>
+
+      <div *ngIf="calcularUtilidad > 0" class="resultadodados" class="Utilidad">
+        Utilidad: {{ calcularUtilidad }} Bs.
+      </div>
+
+      
+
+    </ion-card-content>
+  </ion-card>
+  
+  
+
 </ion-content>
+
